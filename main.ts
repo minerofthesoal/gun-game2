@@ -107,7 +107,7 @@ statusbars.onZero(StatusBarKind.time, function (status) {
     statusbar.value = 200
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    if (ammo > 0) {
+    if (ammo >= 0) {
         if (fireable == true) {
             fired = true
             ammo += -1
@@ -117,7 +117,11 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
                 transformSprites.changeRotation(gun, -2.05)
             }
             extraEffects.createSpreadEffectAt(extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Explosion), 67, 73, 135.5)
-            if (gascan == true) {
+            if (fireable_A == true) {
+                if (Math.percentChance(missfire_change * 10)) {
+                    music.play(music.createSoundEffect(WaveShape.Noise, 368, 0, 255, 255, 100, SoundExpressionEffect.Vibrato, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
+                }
+            } else if (gascan == true) {
                 mySprite3 = sprites.create(assets.image`gassss`, SpriteKind.Projectile)
                 scaling.scaleToPercent(mySprite3, 67.5, ScaleDirection.Uniformly, ScaleAnchor.Middle)
                 timer.background(function () {
@@ -174,6 +178,14 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
             } else if (ammo == 1) {
                 pauseUntil(() => ammo == 1)
                 mySprite4.setImage(assets.image`myImage3`)
+            } else {
+                pauseUntil(() => ammo == 0)
+                mySprite4.setImage(assets.image`myImage3`)
+                fireable_A = true
+                missfire_change += 1
+                if (Math.percentChance(12.5)) {
+                    missfire_change += 1
+                }
             }
             pause(100)
             if (hits == 14) {
@@ -221,6 +233,7 @@ controller.combos.attachCombo("right,right,right,left,right,left,right", functio
     }
 })
 let textSprite: TextSprite = null
+let missfire_change = 0
 let fired = false
 let lig = false
 let auto_reload = false
@@ -239,6 +252,8 @@ let ammo = 0
 let fireable = false
 let gun: Sprite = null
 let mySprite20250313T031343369Z: Sprite = null
+let fireable_A = false
+fireable_A = false
 mySprite20250313T031343369Z = sprites.create(assets.image`target`, SpriteKind.target)
 gun = sprites.create(assets.image`gun`, SpriteKind.Player)
 scaling.scaleToPercent(gun, 27.2, ScaleDirection.Uniformly, ScaleAnchor.Middle)
