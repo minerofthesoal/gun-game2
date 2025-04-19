@@ -1672,6 +1672,36 @@ bbbbbbbbcbbbbddbddbbbbbbbbbbbbbbbddbbbddbbbddbbbbccbbbcbbbbbccbbbbbbbbbbbbbbbbbb
 ................................
 ................................
 `;
+            case "image15":
+            case "myImage10":return img`
+eeeeeeeeeeeeeeeeeeeeeeeeeeee
+eeeeeeeeeeeeeeeeeeeeeeeeeeee
+eeeeeeeeeeeeeeeeeeeeeeeeeeee
+eeeeeeeeeeeeeeeeeeeeeeeeeeee
+effffffffffffffffffffffffffe
+efbbbbbbbffbbbbbbccbbbbbbffe
+efbbbbbbbbcffbbaaaccbbbbbffe
+efbbbbbcbbabbbbbbbcccbbbbffe
+efbabbbcbbbaabbbbbbccbbbbffe
+efbaabbbbbbcbbbbbcbaccbbbffe
+efbbbaaaaabccbbbbbbaccbbbffe
+efbbbbbbbbbbcbbbbbbcaccbbffe
+efbbcbccbccbacccccbbaccbbffe
+efbbbcaabbcbfbbbbbaabbbbcffe
+efbbbbbbbbbffbbbbbbbabbbbffe
+efbbbccbbbbbbbbbbbbbbbbbbffe
+efbbbcbbbbcccbbbaaaccbbbbffe
+efbbbbbbbbbbbbbbbccbbbbbbffe
+effffffffffffffffffffffffffe
+eeeeeeeeeeeeeeeeeeeeeeeeeeee
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+`;
         }
         return null;
     })

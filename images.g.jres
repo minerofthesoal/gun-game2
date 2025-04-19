@@ -99,6 +99,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage3"
     },
+    "image15": {
+        "data": "hwQcABsAAADu7u7u7u7u7u7uAAAAAAAA7u7/////////7wAAAAAAAO7uv7u7u7u7u+8AAAAAAADu7r+7qru7u7vvAAAAAAAA7u6/u6u7vLu77wAAAAAAAO7uv7u7usvLvO8AAAAAAADu7r+7u7qsy7vvAAAAAAAA7u6/y7y6rLu77wAAAAAAAO7uv7u7uru7u+8AAAAAAADu7v+7u7q8u7vvAAAAAAAA7u7/rLu7zLu87wAAAAAAAO7uv7/KvLu/vO8AAAAAAADu7r+/usz6v7zvAAAAAAAA7u6/u7u7vLu77wAAAAAAAO7uv7u7u7y7u+8AAAAAAADu7r+6u7u8u7vvAAAAAAAA7u6/uru7vLu67wAAAAAAAO7uz7rLu7y7yu8AAAAAAADu7s/Mu7uru8rvAAAAAAAA7u6/zKzKq7u87wAAAAAAAO7uv8vMrLq6vO8AAAAAAADu7r+7y8y8u7vvAAAAAAAA7u6/u7vLvLu77wAAAAAAAO7uv7u7u7u7u+8AAAAAAADu7r+7u7vLu7vvAAAAAAAA7u7/////////7wAAAAAAAO7u/////////+8AAAAAAADu7u7u7u7u7u7uAAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage10"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

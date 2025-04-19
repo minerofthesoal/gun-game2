@@ -105,6 +105,7 @@ statusbars.onZero(StatusBarKind.time, function (status) {
     lig = false
     multilights.toggleLighting(false)
     statusbar.value = 200
+    bartime = 8.11
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (ammo >= 0) {
@@ -232,9 +233,11 @@ controller.combos.attachCombo("right,right,right,left,right,left,right", functio
         metal = false
     }
 })
+let textSprite2: TextSprite = null
 let textSprite: TextSprite = null
 let missfire_change = 0
 let fired = false
+let bartime = 0
 let lig = false
 let auto_reload = false
 let mySprite3: Sprite = null
@@ -253,7 +256,10 @@ let fireable = false
 let gun: Sprite = null
 let mySprite20250313T031343369Z: Sprite = null
 let fireable_A = false
+let mySprite = sprites.create(assets.image`myImage10`, SpriteKind.Player)
+mySprite.setPosition(81, 106)
 fireable_A = false
+Clock.clockSpeed(0.01033591731)
 mySprite20250313T031343369Z = sprites.create(assets.image`target`, SpriteKind.target)
 gun = sprites.create(assets.image`gun`, SpriteKind.Player)
 scaling.scaleToPercent(gun, 27.2, ScaleDirection.Uniformly, ScaleAnchor.Middle)
@@ -267,6 +273,7 @@ scene.setBackgroundImage(assets.image`city`)
 mySprite2.setPosition(137, 48)
 mySprite20250313T031343369Z.setVelocity(0, 10)
 rgrhio.setPosition(137, 68)
+Clock.clockToggle(true)
 controller.combos.setTimeout(3595.75)
 ammo = 8
 mySprite4 = sprites.create(assets.image`myImage8`, SpriteKind.Player)
@@ -278,8 +285,8 @@ statusbar = statusbars.create(24, 13, StatusBarKind.time)
 statusbar.max = 200
 statusbar.value = 200
 statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
-statusbar.setPosition(81, 104)
-statusbar.setColor(8, 4, 6)
+statusbar.setPosition(0, 120)
+statusbar.setColor(7, 7, 6)
 multilights.toggleLighting(false)
 mySprite20250320T234148924Z = sprites.create(assets.image`o lights`, SpriteKind.Player)
 scaling.scaleToPercent(mySprite20250320T234148924Z, 44.95, ScaleDirection.Uniformly, ScaleAnchor.Middle)
@@ -298,4 +305,12 @@ forever(function () {
 forever(function () {
     pause(115)
     statusbar.value += -0.3225
+    bartime += 0.4
+})
+forever(function () {
+    pause(75)
+    textSprite2 = textsprite.create(Clock.clockTime())
+    textSprite2.setPosition(81, 106)
+    pause(725)
+    sprites.destroy(textSprite2)
 })
