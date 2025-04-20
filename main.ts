@@ -86,7 +86,7 @@ controller.combos.attachCombo("up,down,up,down,left,up", function () {
         gascan = false
     }
 })
-statusbars.onStatusReached(StatusBarKind.time, statusbars.StatusComparison.LTE, statusbars.ComparisonType.Percentage, 48.5585, function (status) {
+statusbars.onStatusReached(StatusBarKind.time, statusbars.StatusComparison.LTE, statusbars.ComparisonType.Percentage, 50, function (status) {
     multilights.toggleLighting(true)
     multilights.addLightSource(mySprite20250313T031343369Z, 9)
     lig = true
@@ -99,6 +99,9 @@ statusbars.onStatusReached(StatusBarKind.time, statusbars.StatusComparison.LTE, 
     )
     lantern.setBreathingEnabled(true)
     multilights.bandWidthOf(mySprite20250320T234148924Z, 7)
+    if (shadd == true) {
+        statusbar.setColor(7, 7)
+    }
 })
 statusbars.onZero(StatusBarKind.time, function (status) {
     pause(100)
@@ -106,6 +109,13 @@ statusbars.onZero(StatusBarKind.time, function (status) {
     multilights.toggleLighting(false)
     statusbar.value = 200
     bartime = 8.11
+    days += 1
+    if (Math.percentChance(50)) {
+        mySprite5 = shader.createImageShaderSprite(assets.image`shader`, shader.ShadeLevel.One)
+        mySprite5 = shader.createImageShaderSprite(assets.image`shader`, shader.ShadeLevel.One)
+        statusbar.setColor(8, 8)
+        shadd = true
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     if (ammo >= 0) {
@@ -237,7 +247,10 @@ let textSprite2: TextSprite = null
 let textSprite: TextSprite = null
 let missfire_change = 0
 let fired = false
+let mySprite5: Sprite = null
+let days = 0
 let bartime = 0
+let shadd = false
 let lig = false
 let auto_reload = false
 let mySprite3: Sprite = null
@@ -247,11 +260,11 @@ let up = false
 let hits = 0
 let down = false
 let metal = false
-let mySprite20250320T234148924Z: Sprite = null
 let statusbar: StatusBarSprite = null
 let money = 0
 let mySprite4: Sprite = null
 let ammo = 0
+let mySprite20250320T234148924Z: Sprite = null
 let fireable = false
 let gun: Sprite = null
 let mySprite20250313T031343369Z: Sprite = null
@@ -271,6 +284,7 @@ let rgrhio = sprites.create(assets.image`wall things0`, SpriteKind.eiqohg)
 mySprite20250313T031343369Z.setPosition(137, 60)
 scene.setBackgroundImage(assets.image`city`)
 mySprite2.setPosition(137, 48)
+mySprite20250320T234148924Z = sprites.create(assets.image`o lights`, SpriteKind.Player)
 mySprite20250313T031343369Z.setVelocity(0, 10)
 rgrhio.setPosition(137, 68)
 Clock.clockToggle(true)
@@ -288,7 +302,6 @@ statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
 statusbar.setPosition(0, 120)
 statusbar.setColor(7, 7, 6)
 multilights.toggleLighting(false)
-mySprite20250320T234148924Z = sprites.create(assets.image`o lights`, SpriteKind.Player)
 scaling.scaleToPercent(mySprite20250320T234148924Z, 44.95, ScaleDirection.Uniformly, ScaleAnchor.Middle)
 mySprite20250320T234148924Z.setPosition(43, 54)
 metal = false
@@ -313,4 +326,9 @@ forever(function () {
     textSprite2.setPosition(81, 106)
     pause(725)
     sprites.destroy(textSprite2)
+})
+forever(function () {
+    if (days >= 5 && 0 == 0) {
+    	
+    }
 })
