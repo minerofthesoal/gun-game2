@@ -1,7 +1,7 @@
 namespace SpriteKind {
-    export const target = SpriteKind.create()
-    export const walska = SpriteKind.create()
     export const eiqohg = SpriteKind.create()
+    export const walska = SpriteKind.create()
+    export const target = SpriteKind.create()
 }
 namespace StatusBarKind {
     export const time = StatusBarKind.create()
@@ -27,10 +27,7 @@ sprites.onOverlap(SpriteKind.target, SpriteKind.walska, function (sprite, otherS
     down = false
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.target, function (sprite, otherSprite) {
-    if (coins == true) {
-        money += randint(4.5, 8.68)
-    }
-    if (gascan == true) {
+    if (end_1 == true) {
         extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Cloud), 651, 175, 8)
         extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(2, ExtraEffectPresetShape.Explosion), 273, 125, 4)
         pause(72.5)
@@ -39,42 +36,75 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.target, function (sprite, ot
         extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(15, ExtraEffectPresetShape.Twinkle), 187.5, 79, 14)
         pause(27.5)
         extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Twinkle), 285, 110, 9)
+        pause(100)
+        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(6, ExtraEffectPresetShape.Cloud), 651, 175, 8)
+        pause(65)
+        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(12, ExtraEffectPresetShape.Explosion), 273, 125, 4)
+        pause(72.5)
+        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(2, ExtraEffectPresetShape.Spark), 339, 87.5, 11)
+        pause(14.995)
+        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Twinkle), 187.5, 79, 14)
+        pause(27.5)
+        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(0, ExtraEffectPresetShape.Twinkle), 285, 110, 9)
+        fireable = false
+        pause(2285)
+        music.play(music.createSong(assets.song`ending song`), music.PlaybackMode.InBackground)
+        pause(8999)
+        game.gameOver(true)
+        pause(50)
+        music.setVolume(0)
+        game.setGameOverScoringType(game.ScoringType.HighScore)
     } else {
-        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Cloud), 313)
-    }
-    hits += 1
-    if (Math.percentChance(85.623455)) {
-        extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 525, 155, 3.5)
-    }
-    pause(300)
-    sprites.destroy(mySprite3)
-    timer.background(function () {
-        if (up == true) {
-            mySprite20250313T031343369Z.setVelocity(0, 85)
-            pause(145)
-            mySprite20250313T031343369Z.setVelocity(0, randint(9, 12))
-            if (hits >= 16) {
-                mySprite20250313T031343369Z.setVelocity(0, 52)
-            } else {
+        info.changeScoreBy(1)
+        if (coins == true) {
+            money += randint(4.5, 8.68)
+        }
+        if (gascan == true) {
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Cloud), 651, 175, 8)
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(2, ExtraEffectPresetShape.Explosion), 273, 125, 4)
+            pause(72.5)
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(1, ExtraEffectPresetShape.Spark), 339, 87.5, 11)
+            pause(14.995)
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(15, ExtraEffectPresetShape.Twinkle), 187.5, 79, 14)
+            pause(27.5)
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Twinkle), 285, 110, 9)
+        } else {
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(4, ExtraEffectPresetShape.Cloud), 313)
+        }
+        hits += 1
+        if (Math.percentChance(85.623455)) {
+            extraEffects.createSpreadEffectOnAnchor(mySprite3, extraEffects.createSingleColorSpreadEffectData(5, ExtraEffectPresetShape.Spark), 525, 155, 3.5)
+        }
+        pause(300)
+        sprites.destroy(mySprite3)
+        timer.background(function () {
+            if (up == true) {
+                mySprite20250313T031343369Z.setVelocity(0, 85)
+                pause(145)
                 mySprite20250313T031343369Z.setVelocity(0, randint(9, 12))
+                if (hits >= 16) {
+                    mySprite20250313T031343369Z.setVelocity(0, 52)
+                } else {
+                    mySprite20250313T031343369Z.setVelocity(0, randint(9, 12))
+                }
+                pause(74)
+                up = false
             }
-            pause(74)
-            up = false
-        }
-    })
-    timer.background(function () {
-        if (down == true) {
-            mySprite20250313T031343369Z.setVelocity(0, -85)
-            pause(145)
-            if (hits >= 16) {
-                mySprite20250313T031343369Z.setVelocity(0, -52)
-            } else {
-                mySprite20250313T031343369Z.setVelocity(0, randint(-9, -12))
+        })
+        timer.background(function () {
+            if (down == true) {
+                mySprite20250313T031343369Z.setVelocity(0, -85)
+                pause(145)
+                if (hits >= 16) {
+                    mySprite20250313T031343369Z.setVelocity(0, -52)
+                } else {
+                    mySprite20250313T031343369Z.setVelocity(0, randint(-9, -12))
+                }
+                pause(74)
+                down = false
             }
-            pause(74)
-            down = false
-        }
-    })
+        })
+    }
 })
 controller.combos.attachCombo("down,down,down,right,right,up,left", function () {
     auto_reload = true
@@ -253,9 +283,10 @@ let bartime = 0
 let shadd = false
 let lig = false
 let auto_reload = false
-let mySprite3: Sprite = null
 let gascan = false
 let coins = false
+let mySprite3: Sprite = null
+let end_1 = false
 let up = false
 let hits = 0
 let down = false
@@ -328,7 +359,11 @@ forever(function () {
     sprites.destroy(textSprite2)
 })
 forever(function () {
-    if (days >= 5 && 0 == 0) {
-    	
+    if (days >= 9 && hits >= 28) {
+        pause(1000)
+        mySprite20250313T031343369Z.setVelocity(0, 0)
+        mySprite20250313T031343369Z.setPosition(135, 73)
+        mySprite20250313T031343369Z.setImage(assets.image`gast`)
+        end_1 = true
     }
 })
